@@ -14,6 +14,10 @@
             <h4>Selamat Datang</h4>
             <p>Silahkan masukkan email dan password</p>
             <div class="form-login">
+                <label for="">Email</label>
+                <input type="email" name="username" placeholder="email" value="<?= $_GET['email']; ?>">
+    </div>
+            <div class="form-login">
                 <label for="">New Password</label>
                 <input type="password" name="password" placeholder="masukkan password">
             </div>
