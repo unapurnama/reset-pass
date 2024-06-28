@@ -3,24 +3,24 @@
 include "koneksi.php";
 
 
-$email      = $_POST['email'];
+$email      = $_POST['username'];
 $password   = $_POST['password'];
 
 
 if ($password != $konfirmasi) :
-    header('location:newpass.php?email='.$email.'&error=pass');
+    header('location:newpass.php?username='.$email.'&error=pass');
 else :
     $cek =  mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM tbl_users 
-                                                    WHERE email='$email'"));
+                                                    WHERE username='$email'"));
 if ($cek > 0){
     $pass = md5($_POST['password']);
-    $insert= mysqli_query($koneksi, "UPDATE tbl_users SET password='$password' WHERE email='$email'");
+    $insert= mysqli_query($koneksi, "UPDATE tbl_users SET password='$password' WHERE username='$email'");
 
     echo'Ubah password berhasil';
 
 }else {
     
-    header('location:newpass.php?email='.$email);
+    header('location:newpass.php?username='.$email);
 }
         
 endif;
